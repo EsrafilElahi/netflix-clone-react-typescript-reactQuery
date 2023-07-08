@@ -1,7 +1,10 @@
 import React from 'react';
 
+interface HomeProps {
+  title: string;
+}
 
-const Home = (props: { title: string }) => {
+const Home: React.FC<HomeProps> = (props) => {
   const {title} = props;
 
   return (

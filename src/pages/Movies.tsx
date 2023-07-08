@@ -1,7 +1,10 @@
 import React from 'react';
 
+interface MovieProps {
+  title: string;
+}
 
-const Movies = (props: {title: string}) => {
+const Movies: React.FC<MovieProps> = (props) => {
   const {title} = props;
 
   return (

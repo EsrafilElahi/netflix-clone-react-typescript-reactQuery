@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './pages/Home';
 import Movies from './pages/Movies';
@@ -15,7 +15,11 @@ const router = createBrowserRouter([
   },
 ]);
 
-function App() {
+interface AppProps {
+  title: string;
+}
+
+const App: React.FC<AppProps> = () => {
 
   return (
     <>
