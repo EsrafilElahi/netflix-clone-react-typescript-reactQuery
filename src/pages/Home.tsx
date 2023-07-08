@@ -5,7 +5,7 @@ const Home = (props: { title: string }) => {
   const {title} = props;
 
   return (
-    <div>Hello {title} page</div>
+    <div className='text-3xl text-blue-800 font-bold underline'>Hello {title} page</div>
   )
 }
 
