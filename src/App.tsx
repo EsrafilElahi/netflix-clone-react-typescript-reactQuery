@@ -1,11 +1,25 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from './pages/Home';
+import Movies from './pages/Movies';
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home title="Home" />,
+  },  
+  {
+    path: "/movie",
+    element: <Movies title="Movie" />,
+  },
+]);
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <span>hi yarn</span>
+      <RouterProvider router={router} />
     </>
   )
 }
