@@ -17,11 +17,11 @@
   "overrides": [
     {
       "files": [
-        "**/*.js",
-        "**/*.jsx"
+        "**/*.ts",
+        "**/*.tsx"
       ],
       "options": {
-        "parser": "babel",
+        "parser": "typescript-eslint/parser",
         "plugins": [
           "prettier-plugin-organize-imports"
         ]
