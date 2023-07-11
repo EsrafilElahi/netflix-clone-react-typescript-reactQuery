@@ -9,7 +9,8 @@
     /* config url and base url */
     "baseUrl": "src",
     "paths": {
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@utils/*": ["utils/*"]
     },
 
     /* Bundler mode */
