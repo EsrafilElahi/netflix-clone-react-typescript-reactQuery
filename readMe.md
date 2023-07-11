@@ -1,6 +1,6 @@
 # Netflix Clone
 
-This is a Netflix clone built using Vite, TypeScript, Yarn, Tailwind CSS, React Query, PWA
+This is a Netflix clone built using Vite, TypeScript, Yarn, Tailwind CSS, React Query, PWA, Dockerize (Multi Staging)
 
 ## Features
 
