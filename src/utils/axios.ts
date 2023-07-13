@@ -5,5 +5,3 @@
 //     setUserList(response.data);
 //   }
 // );
-
-export const fet: string = 'asd'

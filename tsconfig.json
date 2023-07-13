@@ -7,10 +7,11 @@
     "skipLibCheck": true,
 
     /* config url and base url */
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@components/*": ["components/*"],
-      "@utils/*": ["utils/*"]
+      "components/*": ["src/components/*"],
+      "utils/*": ["src/utils/*"],
+      "assets/*": ["src/assets/*"],
     },
 
     /* Bundler mode */
