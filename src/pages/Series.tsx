@@ -1,7 +1,11 @@
 import React from 'react';
 
-const Series = () => {
-	return <div>Series</div>;
+interface SeriesProps {
+  title: string;
+}
+
+const Series: React.FC<SeriesProps> = () => {
+  return <div>Series</div>;
 };
 
 export default Series;
