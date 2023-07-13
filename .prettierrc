@@ -1,5 +1,5 @@
 {
-  "useTabs": false,
+  "useTabs": true,
   "bracketSpacing": true,
   "printWidth": 120,
   "tabWidth": 2,

@@ -1,3 +1,36 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import './_fonts.css';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer components {
+	.btn {
+		background: blue;
+	}
+}
+
+@layer utilities {
+	.align-banana {
+		text-align: banana;
+	}
+}
+
+@layer base {
+	body {
+		font-size: 1.4rem;
+
+		@screen md {
+			font-size: 1.5rem;
+		}
+	}
+
+	h2 {
+		@apply text-xl;
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+}

@@ -5,11 +5,11 @@ import App from './App.tsx';
 import './styles/index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <ErrorBoundary>
-      <App title='Home' />
-    </ErrorBoundary>
-  </React.StrictMode>
+	<React.StrictMode>
+		<ErrorBoundary>
+			<App title='Home' />
+		</ErrorBoundary>
+	</React.StrictMode>
 );
 
 // const queryClient = new QueryClient();
