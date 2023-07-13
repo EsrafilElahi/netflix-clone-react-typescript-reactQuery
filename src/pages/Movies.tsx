@@ -1,16 +1,13 @@
 import React from 'react';
 
-
 interface MovieProps {
-  title: string;
+	title: string;
 }
 
 const Movies: React.FC<MovieProps> = (props) => {
-  const {title} = props;
+	const { title } = props;
 
-  return (
-    <div>hi {title} page</div>
-  )
-}
+	return <div>hi {title} page</div>;
+};
 
-export default Movies
+export default Movies;

@@ -1,0 +1,30 @@
+{
+  "arrowParens": "always",
+  "useTabs": true,
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "printWidth": 120,
+  "quoteProps": "as-needed",
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "jsxSingleQuote": true,
+  "organizeImportsSkipDestructiveCodeActions": true, 
+  "semi": true,
+  "singleQuote": true,
+  "plugins": [
+    "prettier-plugin-organize-imports"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "**/*.ts",
+        "**/*.tsx"
+      ],
+      "options": {
+        "plugins": [
+          "prettier-plugin-organize-imports"
+        ]
+      }
+    }
+  ]
+}
