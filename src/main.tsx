@@ -43,8 +43,8 @@ type PromiseRejected = { status: 'rejected'; reason: any };
 type PromiseSettledResult = PromiseFulFilled | PromiseRejected;
 
 
-const fetchAllDefaultsHomePage = () => {
-	fetchHomePage(homePageURLs)
+const fetchAllDefaultsHomePage = async (): Promise<Value[]> => {
+	return fetchHomePage(homePageURLs)
 		.then((results: PromiseSettledResult[]) => {
 			const data: Value[] = results
 				.filter((result): result is PromiseFulFilled => result.status === 'fulfilled')
@@ -59,13 +59,12 @@ const fetchAllDefaultsHomePage = () => {
 			// 	}
 			// 	return accumulator;
 			// }, []);
-
-			console.log('first :', data);
 			queryClient.setQueryData(['home', 'trendings', 'favorites', 'series'], data);
 			return data;
 		})
 		.catch((err) => {
 			console.log('err catch :', err);
+			throw err;
 		});
 };
 
