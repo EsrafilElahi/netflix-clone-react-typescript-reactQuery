@@ -22,7 +22,7 @@ const navs: Nav[] = [
 
 const Navbar: React.FC = () => {
 	return (
-		<nav className='font-barlowRegular'>
+		<nav className=''>
 			{navs.map((nav) => (
 				<NavbarItem key={nav.id as IDs} nav={nav} />
 			))}

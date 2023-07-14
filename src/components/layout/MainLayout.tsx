@@ -8,17 +8,13 @@ interface MainLayoutProps {
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 	return (
-		<div>
-			<section className='hidden md:flex'>
-				<DesktopLayout />
+		<div className='w-full h-full p-3'>
+			<section className='hidden md:flex w-full h-full'>
+				<DesktopLayout>{children}</DesktopLayout>
 			</section>
-			<section className='flex md:hidden'>
-				<MobileLayout />
+			<section className='flex md:hidden w-full h-full'>
+				<MobileLayout>{children}</MobileLayout>
 			</section>
-
-			<main>{children}</main>
-
-			{/* footer compo */}
 		</div>
 	);
 };

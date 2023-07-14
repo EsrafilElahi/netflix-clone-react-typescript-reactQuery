@@ -9,7 +9,7 @@ const Home: React.FC<HomeProps> = (props) => {
 	const { title } = props;
 
 	return (
-		<div className=''>
+		<div className='h-full'>
 			<span>{title} page</span>
 		</div>
 	);

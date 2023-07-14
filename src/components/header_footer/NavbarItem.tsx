@@ -7,8 +7,8 @@ const NavbarItem: React.FC<NavbarItemProps> = (props) => {
 
   const matches = useMatches();
   const isActive = matches.find((match) => match.pathname === nav.link);
-  const activeClasses: string = 'text-blue-500';
-  const defaultClassed: string = 'mx-2';
+  const activeClasses: string = 'text-red-500';
+  const defaultClassed: string = 'mr-6';
 
 	return (
 		<NavLink to={nav.link} className={`${defaultClassed} ${isActive ? activeClasses : ''}`}>

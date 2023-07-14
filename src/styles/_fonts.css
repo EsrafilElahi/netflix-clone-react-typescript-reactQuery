@@ -1,5 +1,5 @@
 @font-face {
-	font-family: 'barlow';
+	font-family: 'barlow-thin';
 	src: url('../assets/fonts/barlow/barlow-thin.ttf');
 	font-weight: normal;
 	font-style: normal;
@@ -9,7 +9,7 @@
 @font-face {
 	font-family: 'barlow-regular';
 	src: url('../assets/fonts/barlow/barlow-regular.ttf');
-	font-weight: 200;
+	font-weight: 300;
 	font-style: normal;
 	font-display: swap;
 }

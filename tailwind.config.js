@@ -10,7 +10,7 @@ export default {
   theme: {
     extend:{
       fontFamily: {
-        barlow: ['barlow', 'cursive'],
+        barlowThin: ['barlow-thin', 'cursive'],
         barlowRegular: ['barlow-regular', 'cursive'],
         barlowMedium: ['barlow-medium', 'cursive'],
         barlowBold: ['barlow-bold', 'cursive'],
