@@ -13,7 +13,7 @@ const homePageURLs: string[] = [
 	import.meta.env.VITE_ALL_SERIES,
 ];
 
-export type Result = {
+type Result = {
 	adul: boolean;
 	backdrop_path: string | null;
 	genre_ids: number[];
