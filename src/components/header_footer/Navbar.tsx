@@ -1,6 +1,7 @@
 import React from 'react';
+
 import NavbarItem from './NavbarItem';
-import type { IDs,Nav } from './types';
+import type { IDs, Nav } from './types';
 
 const navs: Nav[] = [
 	{
@@ -22,11 +23,13 @@ const navs: Nav[] = [
 
 const Navbar: React.FC = () => {
 	return (
-		<nav className=''>
-			{navs.map((nav) => (
-				<NavbarItem key={nav.id as IDs} nav={nav} />
-			))}
-		</nav>
+		<div>
+			<nav className='absolute z-10 p-3 w-full'>
+				{navs.map((nav) => (
+					<NavbarItem key={nav.id as IDs} nav={nav} />
+				))}
+			</nav>
+		</div>
 	);
 };
 

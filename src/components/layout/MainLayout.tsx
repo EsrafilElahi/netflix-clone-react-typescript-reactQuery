@@ -8,7 +8,7 @@ interface MainLayoutProps {
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 	return (
-		<div className='w-full h-full p-3'>
+		<div className='w-full h-full'>
 			<section className='hidden md:flex w-full h-full'>
 				<DesktopLayout>{children}</DesktopLayout>
 			</section>

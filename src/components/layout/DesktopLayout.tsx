@@ -8,7 +8,7 @@ interface DesktopLayoutProps {
 
 const DesktopLayout: React.FC<DesktopLayoutProps> = ({ children }) => {
 	return (
-		<div className='w-full h-full flex flex-col gap-3'>
+		<div className='w-full h-full flex flex-col'>
 			<header className=''>
 				<Navbar />
 			</header>

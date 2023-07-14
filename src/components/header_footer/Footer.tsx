@@ -7,7 +7,7 @@ const Footer = () => {
 	const isActive = (path: LinkProp[keyof LinkProp]) => matches.find((match) => match.pathname === path);
 
 	return (
-		<section className='flex justify-between items-center'>
+		<section className='flex justify-between items-center p-3'>
 			<div className='flex flex-col gap-3 text-center'>
 				<a rel='noopener noreferrer' target='_blank' href='https://github.com/EsrafilElahi'>
 					github
@@ -20,7 +20,7 @@ const Footer = () => {
 				</a>
 			</div>
 
-			<div>
+			<div className='flex flex-col text-center'>
 				<span>&copy; Copyright. All rights reserved</span>
 				<span>Esrafil Elahi</span>
 			</div>
