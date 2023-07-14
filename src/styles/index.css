@@ -28,10 +28,6 @@
 
 		font-size: 1.4rem;
 
-		#root{
-			height: 100%;
-		}
-
 		@screen md {
 			font-size: 1.5rem;
 		}
@@ -46,4 +42,8 @@
 		padding: 0;
 		box-sizing: border-box;
 	}
+}
+
+#root {
+	height: 100%;
 }

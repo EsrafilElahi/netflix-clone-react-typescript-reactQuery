@@ -1,58 +1,48 @@
 import ErrorBoundary from 'components/other/ErrorBoundary';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { QueryClient,QueryClientProvider,useQuery } from 'react-query';
 import App from './App.tsx';
+import { fetchHomePage } from './api gateway/HomePage.ts';
 import './styles/index.css';
+
+
+const homePageURLs = [
+	import.meta.env.VITE_TRENDING_MOVIES,
+	import.meta.env.VITE_FAVORITE_MOVIES,
+	import.meta.env.VITE_ALL_SERIES,
+];
+
+const fetchAllDefaultsHomePage = () => {
+	fetchHomePage(homePageURLs)
+		.then((results) => {
+			const finalData = results.filter((result) => result.status === 'fulfilled').map((res) => res.value);
+			queryClient.setQueryData(['home', 'trendings', 'favorites', 'series'], finalData);
+			return finalData;
+		})
+		.catch((err) => {
+			console.log('err catch :', err);
+		});
+};
+
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			refetchOnWindowFocus: false,
+			queryKey: ['home', 'trendings', 'favorites', 'series'],
+			queryFn: fetchAllDefaultsHomePage,
+			initialData: [],
+		},
+	},
+});
+
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
-		<ErrorBoundary>
-			<App />
-		</ErrorBoundary>
+		<QueryClientProvider client={queryClient}>
+			<ErrorBoundary>
+				<App />
+			</ErrorBoundary>
+		</QueryClientProvider>
 	</React.StrictMode>
 );
-
-// const queryClient = new QueryClient();
-
-// // Define the "addTodo" mutation
-// queryClient.setMutationDefaults(['addTodo'], {
-// 	mutationFn: addTodo,
-// 	onMutate: async (variables) => {
-// 		// Cancel current queries for the todos list
-// 		await queryClient.cancelQueries({ queryKey: ['todos'] });
-
-// 		// Create optimistic todo
-// 		const optimisticTodo = { id: uuid(), title: variables.title };
-
-// 		// Add optimistic todo to todos list
-// 		queryClient.setQueryData(['todos'], (old) => [...old, optimisticTodo]);
-
-// 		// Return context with the optimistic todo
-// 		return { optimisticTodo };
-// 	},
-// 	onSuccess: (result, variables, context) => {
-// 		// Replace optimistic todo in the todos list with the result
-// 		queryClient.setQueryData(['todos'], (old) =>
-// 			old.map((todo) => (todo.id === context.optimisticTodo.id ? result : todo)),
-// 		);
-// 	},
-// 	onError: (error, variables, context) => {
-// 		// Remove optimistic todo from the todos list
-// 		queryClient.setQueryData(['todos'], (old) => old.filter((todo) => todo.id !== context.optimisticTodo.id));
-// 	},
-// 	retry: 3,
-// });
-
-// // Start mutation in some component:
-// const mutation = useMutation({ mutationKey: ['addTodo'] });
-// mutation.mutate({ title: 'title' });
-
-// // If the mutation has been paused because the device is for example offline,
-// // Then the paused mutation can be dehydrated when the application quits:
-// const state = dehydrate(queryClient);
-
-// // The mutation can then be hydrated again when the application is started:
-// hydrate(queryClient, state);
-
-// // Resume the paused mutations:
-// queryClient.resumePausedMutations();
