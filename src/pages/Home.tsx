@@ -13,15 +13,26 @@ type HomeProps = {
 const Home: React.FC<HomeProps> = (props) => {
 	const { title } = props;
 
- const { status, data, error, isFetching } = useQuery(['home', 'trendings', 'favorites', 'series']);	
+	const { isLoading, data: homeData, error } = useQuery<any[]>(['home', 'trendings', 'favorites', 'series']);
 
- console.log('data in home page :', data);
+	console.log('data in home page :', homeData);
+
+	const trendings = homeData;
+
+
+	if (isLoading) {
+		return <div>loading...</div>;
+	}
+	if(error) {
+		return <div>error</div>;
+	}
 
 	return (
 		<div className='h-full relative'>
 			<Helmet>
 				<title>Netflix | {title}</title>
 			</Helmet>
+
 			<h1 className={`z-10 ${styles.txtReflect}`}>Enjoy Watch Movies</h1>
 			<img src={HeroImage} alt='hero image' className='w-full h-full absolute' />
 			<div className={`w-full h-full absolute z-2 ${styles.bgGradient}`}></div>
