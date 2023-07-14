@@ -34,14 +34,11 @@ type HomeProps = {
 	act: number;
 };
 
-type HomeData = Value[]; // Adjust the type as per your data structure
-
 
 const Home: React.FC<HomeProps> = (props) => {
 	const { title } = props;
 
-	const { isLoading, data: homeData, error } = useQuery<HomeData>(['home', 'trendings', 'favorites', 'series']);
-
+	const { isLoading, data: homeData, error } = useQuery<Value[]>(['home', 'trendings', 'favorites', 'series']);
 	console.log('data in home page :', homeData);
 
 
