@@ -50,6 +50,7 @@ const fetchAllDefaultsHomePage = async (): Promise<Value[]> => {
 				.filter((result): result is PromiseFulFilled => result.status === 'fulfilled')
 				.map((res) => res.value);
 
+			// another way
 			// const data: Value[] = results.reduce((accumulator: Value[], result: PromiseSettledResult) => {
 			// 	if (result.status === 'fulfilled') {
 			// 		accumulator.push(result.value);
@@ -59,6 +60,7 @@ const fetchAllDefaultsHomePage = async (): Promise<Value[]> => {
 			// 	}
 			// 	return accumulator;
 			// }, []);
+
 			queryClient.setQueryData(['home', 'trendings', 'favorites', 'series'], data);
 			return data;
 		})
