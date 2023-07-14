@@ -1,8 +1,8 @@
-import Navbar from 'components/header_footer/Navbar';
 import React from 'react';
 
-interface HomeProps {
+type HomeProps = {
 	title: string;
+	act:number
 }
 
 const Home: React.FC<HomeProps> = (props) => {
@@ -10,7 +10,7 @@ const Home: React.FC<HomeProps> = (props) => {
 
 	return (
 		<div className=''>
-			<Navbar />
+			<span>{title} page</span>
 		</div>
 	);
 };

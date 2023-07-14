@@ -22,27 +22,28 @@
 	},
 	"plugins": ["react", "react-hooks", "prettier"],
 	"rules": {
-    "prettier/prettier": [
-      "off",
-      // override the .prettierrc file
-      {
-        "singleQuote": true
-      }
-    ],
-    "no-unused-vars": [
-      "off",
-      {
-        "vars": "all"
-      }
-    ],
-    "react/prop-types": "off",
-    "import/no-unresolved": "off",
-    "react/react-in-jsx-scope": "off",
-    "no-var-requires": "off",
+		"prettier/prettier": [
+			"off",
+			// override the .prettierrc file
+			{
+				"singleQuote": true
+			}
+		],
+		"no-unused-vars": [
+			"off",
+			{
+				"vars": "all"
+			}
+		],
+		"react/prop-types": "off",
+		"import/no-unresolved": "off",
+		"react/react-in-jsx-scope": "off",
+		"no-var-requires": "off",
+		"react/display-name": "off",
 		"@typescript-eslint/no-inferrable-types": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "no-console": "off"
-  },
+		"@typescript-eslint/no-non-null-assertion": "off",
+		"no-console": "off"
+	},
 	"settings": {
 		"react": {
 			"version": "detect"

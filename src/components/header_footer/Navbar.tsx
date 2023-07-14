@@ -22,11 +22,11 @@ const navs: Nav[] = [
 
 const Navbar: React.FC = () => {
 	return (
-		<div className='font-barlowRegular'>
+		<nav className='font-barlowRegular'>
 			{navs.map((nav) => (
 				<NavbarItem key={nav.id as IDs} nav={nav} />
 			))}
-		</div>
+		</nav>
 	);
 };
 
