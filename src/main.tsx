@@ -2,6 +2,7 @@ import ErrorBoundary from 'components/other/ErrorBoundary';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { QueryClient,QueryClientProvider,useQuery } from 'react-query';
+import { Result,Value } from 'types/HomePageTypes';
 import App from './App.tsx';
 import { fetchHomePage } from './api gateway/HomePage.ts';
 import './styles/index.css';
@@ -13,30 +14,6 @@ const homePageURLs: string[] = [
 	import.meta.env.VITE_ALL_SERIES,
 ];
 
-type Result = {
-	adul: boolean;
-	backdrop_path: string | null;
-	genre_ids: number[];
-	id: number;
-	media_type: 'movie' | 'tv' | Omit<string, 'movie' | 'tv'>;
-	original_language: 'en' | Omit<string, 'en'>;
-	original_title: string;
-	overview: string;
-	popularity: number;
-	poster_path: string | null;
-	release_date: string;
-	title: string;
-	video: false;
-	vote_average: number;
-	vote_count: number;
-};
-
-type Value = {
-	page: number;
-	results: Result[];
-	total_pages: number;
-	total_results: number;
-};
 
 type PromiseFulFilled = { status: 'fulfilled'; value: Value };
 type PromiseRejected = { status: 'rejected'; reason: any };
