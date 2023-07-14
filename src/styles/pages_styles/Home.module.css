@@ -4,12 +4,12 @@
 
 .txtReflect {
   position: absolute;
-  top: 47%;
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  font-size: 4rem;
-  font-family: 'barlow-bold';
+  font-size: 4.5vw;
+  font-family: 'bayon';
   color: rgb(231, 228, 216);
-  -webkit-box-reflect: below -2rem linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0, 0, 0, 0.285));
+  -webkit-box-reflect: below -3vw linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0, 0, 0, 0.285));
 }

@@ -1,7 +1,7 @@
 @font-face {
-	font-family: 'barlow-thin';
-	src: url('../assets/fonts/barlow/barlow-thin.ttf');
-	font-weight: normal;
+	font-family: 'bayon';
+	src: url('../assets/fonts/bayon/Bayon-Regular.ttf');
+	font-weight: bold;
 	font-style: normal;
 	font-display: swap;
 }

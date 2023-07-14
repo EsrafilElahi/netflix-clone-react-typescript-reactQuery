@@ -10,6 +10,7 @@ export default {
   theme: {
     extend:{
       fontFamily: {
+        bayon: ['bayon', 'cursive'],
         barlowThin: ['barlow-thin', 'cursive'],
         barlowRegular: ['barlow-regular', 'cursive'],
         barlowMedium: ['barlow-medium', 'cursive'],
