@@ -43,7 +43,7 @@ const Home: React.FC<HomeProps> = (props) => {
 			<div className={`w-full h-screen absolute z-2 ${styles.bgGradient}`}></div>
 
 			{/* trendings */}
-			{trendings?.results?.map((trend) => <MovieItem key={trend.id} {...trend} />)}
+			<section className={styles.scrollSection}>{trendings?.results?.map((trend) => <MovieItem key={trend.id} {...trend} />)}</section>
 		</div>
 	);
 };

@@ -7,7 +7,7 @@
 
 .txtReflect {
   position: absolute;
-  top: 28%;
+  top: 28.5rem;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -15,4 +15,39 @@
   font-family: 'bayon';
   color: rgb(231, 228, 216);
   -webkit-box-reflect: below -3vw linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0, 0, 0, 0.285));
+}
+
+.scrollSection{
+  display: flex;
+  padding: 1rem;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+}
+
+.bgGradientCard {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(#1e1e1e96, #020202ee);
+}
+
+.movieItem {
+  flex: 0 0 auto;
+  width: 15rem;
+  height: 20rem;
+  position: relative;
+}
+.movieTitle{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  top: 30%;
+  gap: 2rem;
+  color: antiquewhite;
+  text-align: center;
+  white-space: break-spaces;
+  z-index: 2;
 }
