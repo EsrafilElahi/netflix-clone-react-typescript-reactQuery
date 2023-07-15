@@ -3,8 +3,8 @@ import MovieItem from 'components/Movie/MovieItem';
 import React,{ useEffect,useState } from 'react';
 import { Helmet } from "react-helmet";
 import { useQuery } from 'react-query';
+import styles from 'styles/pages_styles/Home.module.css';
 import { Result,Value } from 'types/HomePageTypes';
-import styles from '../styles/pages_styles/Home.module.css';
 
 
 type HomeProps = {
