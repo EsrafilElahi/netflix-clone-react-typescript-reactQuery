@@ -13,6 +13,7 @@
       "utils/*": ["src/utils/*"],
       "assets/*": ["src/assets/*"],
       "types/*": ["src/types/*"],
+      "styles/*": ["src/styles/*"],
     },
     /* Bundler mode */
     "moduleResolution": "node",
