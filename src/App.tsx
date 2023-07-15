@@ -18,10 +18,16 @@ const router = createBrowserRouter([
 	{
 		path: '/movies',
 		element: <MoviesLayout title='Movies' />,
+		loader: async () => {
+			// prefetch this page data
+		},
 	},
 	{
 		path: '/series',
 		element: <SeriesLayout title='Series' />,
+		loader: async () => {
+			// prefetch this page data
+		},
 	},
 ]);
 

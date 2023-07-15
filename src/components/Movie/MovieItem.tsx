@@ -2,13 +2,13 @@ import React,{ useState } from 'react';
 import styles from 'styles/pages_styles/Home.module.css';
 import { Result } from 'types/HomePageTypes';
 
-type RequiredValues = 'original_title' | 'poster_path' | 'release_date';
+type RequiredValues = 'original_title' | 'poster_path' | 'release_date' | 'original_name' | 'first_air_date';
 type MovieItemProps = Partial<Result> & Required<Pick<Result, RequiredValues>>;
 
 const MovieItem: React.FC<MovieItemProps> = (props) => {
-	const { original_title, release_date, poster_path } = props;
+	const { original_title, original_name, release_date, first_air_date, poster_path } = props;
   const [hovered, setHovered] = useState<boolean>(false);
-	const date: Date = new Date(release_date);
+	const date: Date = new Date(release_date ?? first_air_date);
 	const year: number = date.getFullYear();
 	console.log(props);
 
@@ -18,8 +18,8 @@ const MovieItem: React.FC<MovieItemProps> = (props) => {
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
 		>
-			<div className={`absolute ${styles.movieTitle}`}>
-				<span className='leading-[normal]'>{original_title}</span>
+			<div className={`absolute hidden ${styles.movieTitle} ${hovered ? styles.fadeIn : null}`}>
+				<span className='leading-[normal]'>{original_title ?? original_name}</span>
 				<span>{year}</span>
 			</div>
 			<div className='w-full h-full rounded-lg relative'>
@@ -30,9 +30,7 @@ const MovieItem: React.FC<MovieItemProps> = (props) => {
 				/>
 			</div>
 			<div
-				className={`${hovered ? 'visible' : 'invisible'} absolute w-full h-full z-2 rounded-lg ${
-					styles.bgGradientCard
-				}`}
+				className={`absolute w-full h-full z-2 rounded-lg ${hovered ? styles.fadeIn : null} ${styles.bgGradientCard}`}
 			></div>
 		</div>
 	);
