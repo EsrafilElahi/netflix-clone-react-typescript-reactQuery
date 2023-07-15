@@ -1,4 +1,5 @@
 import HeroImage from 'assets/images/bg.jpg';
+import MovieItem from 'components/Movie/MovieItem';
 import React,{ useEffect,useState } from 'react';
 import { Helmet } from "react-helmet";
 import { useQuery } from 'react-query';
@@ -14,8 +15,13 @@ type HomeProps = {
 const Home: React.FC<HomeProps> = (props) => {
 	const { title } = props;
 
-	const { isLoading, data: homeData, error } = useQuery<Value[]>(['home', 'trendings', 'favorites', 'series']);
+	const { isLoading, data: homeData, error } = useQuery<Value[] | Value>(['home', 'trendings', 'favorites', 'series']);
 	console.log('data in home page :', homeData);
+
+	const trendings = Array.isArray(homeData) ? homeData[0] : undefined;
+	const favorites = Array.isArray(homeData) ? homeData[1] : undefined;
+	const series = Array.isArray(homeData) ? homeData[2] : undefined;
+	console.log('trendings :', trendings);
 
 	if (isLoading) {
 		return <div>loading...</div>;
@@ -31,8 +37,13 @@ const Home: React.FC<HomeProps> = (props) => {
 			</Helmet>
 
 			<h1 className={`z-10 ${styles.txtReflect}`}>Enjoy Watch Movies</h1>
-			<img src={HeroImage} alt='hero image' className='w-full h-full absolute' />
-			<div className={`w-full h-full absolute z-2 ${styles.bgGradient}`}></div>
+			<div className='w-full h-screen relative'>
+				<img src={HeroImage} alt='hero image' className='w-full h-full' />
+			</div>
+			<div className={`w-full h-screen absolute z-2 ${styles.bgGradient}`}></div>
+
+			{/* trendings */}
+			{trendings?.results?.map((trend) => <MovieItem key={trend.id} {...trend} />)}
 		</div>
 	);
 };

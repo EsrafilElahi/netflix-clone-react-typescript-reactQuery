@@ -1,4 +1,7 @@
 .bgGradient {
+  position: absolute;
+  top: 0;
+  bottom: 0;
   background: linear-gradient(#5c5c5c52, #020202cf);
 }
 
