@@ -6,6 +6,7 @@ interface MovieProps {
 
 const Movies: React.FC<MovieProps> = (props) => {
 	const { title } = props;
+	// ['movies', 'page']
 
 	return <div>hi {title} page</div>;
 };
