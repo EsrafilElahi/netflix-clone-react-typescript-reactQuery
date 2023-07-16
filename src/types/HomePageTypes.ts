@@ -29,7 +29,7 @@ export type Result2 = Result & {
 
 export type Value = {
   page: number;
-  results: Result[];
+  results: Result1[] | Result2;
   total_pages: number;
   total_results: number;
 };

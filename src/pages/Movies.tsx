@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery,useQueryClient } from 'react-query';
 import { fetchData } from '../api gateway/HomePage';
+import { Value } from 'types/HomePageTypes';
 
 interface MovieProps {
 	title: string;
@@ -15,7 +16,7 @@ const Movies: React.FC<MovieProps> = (props) => {
 		return res;
 	};
 
-	const { data: moviesList, error, isLoading } = useQuery<any>(['movies', 'page'], fetchMovies);
+	const { data: moviesList, error, isLoading } = useQuery<Value[] | Value>(['movies', 'page'], fetchMovies);
 
 	console.log('/movies/ :', moviesList);
 
