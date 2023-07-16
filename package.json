@@ -20,7 +20,8 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-query": "^3.39.3",
-    "react-router-dom": "^6.14.1"
+    "react-router-dom": "^6.14.1",
+    "react-window": "^1.8.9"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.3",
