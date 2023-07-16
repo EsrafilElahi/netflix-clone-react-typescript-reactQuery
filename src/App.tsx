@@ -1,6 +1,7 @@
 // eslint-disable-next-line prettier/prettier
 import WithLayout from 'components/layout/WithLayout';
 import React from 'react';
+import { useQueryClient } from 'react-query';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
 import Movies from './pages/Movies';
@@ -9,6 +10,7 @@ import Series from './pages/Series';
 const HomeLayout = WithLayout(Home);
 const MoviesLayout = WithLayout(Movies);
 const SeriesLayout = WithLayout(Series);
+
 
 const router = createBrowserRouter([
 	{
@@ -19,7 +21,10 @@ const router = createBrowserRouter([
 		path: '/movies',
 		element: <MoviesLayout title='Movies' />,
 		loader: async () => {
-			// prefetch this page data
+			const queryClient = useQueryClient();
+			const prefetchTodos = async () => {
+				await queryClient.prefetchQuery('todos', fetchTodos);
+			};
 		},
 	},
 	{
