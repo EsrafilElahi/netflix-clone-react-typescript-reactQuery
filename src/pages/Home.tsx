@@ -10,7 +10,6 @@ const MovieItem = lazy(() => import('components/Movie/MovieItem'));
 
 type HomeProps = {
 	title: string;
-	act: number;
 };
 
 const Home: React.FC<HomeProps> = (props) => {
