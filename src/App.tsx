@@ -3,6 +3,7 @@ import WithLayout from 'components/layout/WithLayout';
 import React from 'react';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import { fetchData } from './api gateway/HomePage';
+import { queryClient } from './main';
 import Home from './pages/Home';
 import Movies from './pages/Movies';
 import Series from './pages/Series';
@@ -14,7 +15,7 @@ const SeriesLayout = WithLayout(Series);
 interface PP {}
 
 const MoviesLoader: React.FC<PP> = async () => {
-	const queryClient = useQueryClient();
+	// const queryClient = useQueryClient();
 	const getAll = async () => {
 		const getAllMoviesList = await fetchData(import.meta.env.VITE_TRENDING_MOVIES);
 		return await queryClient.prefetchQuery(['movies', 'page'], getAllMoviesList);
@@ -36,14 +37,10 @@ const router = createBrowserRouter([
 	{
 		path: '/movies',
 		element: <MoviesLayout title='Movies' />,
-		loader: () => <MoviesLoader />,
 	},
 	{
 		path: '/series',
 		element: <SeriesLayout title='Series' />,
-		loader: async () => {
-			// prefetch this page data
-		},
 	},
 ]);
 
