@@ -1,7 +1,6 @@
 // eslint-disable-next-line prettier/prettier
 import WithLayout from 'components/layout/WithLayout';
 import React from 'react';
-import { useQueryClient } from 'react-query';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import { fetchData } from './api gateway/HomePage';
 import Home from './pages/Home';
@@ -12,6 +11,22 @@ const HomeLayout = WithLayout(Home);
 const MoviesLayout = WithLayout(Movies);
 const SeriesLayout = WithLayout(Series);
 
+interface PP {}
+
+const MoviesLoader: React.FC<PP> = async () => {
+	const queryClient = useQueryClient();
+	const getAll = async () => {
+		const getAllMoviesList = await fetchData(import.meta.env.VITE_TRENDING_MOVIES);
+		return await queryClient.prefetchQuery(['movies', 'page'], getAllMoviesList);
+	};
+
+	React.useEffect(() => {
+		getAll();
+	}, []); // Empty dependency array to run the effect only once
+
+	return null; // The loader component doesn't render anything
+};
+
 
 const router = createBrowserRouter([
 	{
@@ -21,13 +36,7 @@ const router = createBrowserRouter([
 	{
 		path: '/movies',
 		element: <MoviesLayout title='Movies' />,
-		loader: async () => {
-			const queryClient = useQueryClient();
-
-			const getAllMoviesList = await fetchData(import.meta.env.VITE_TRENDING_MOVIES);
-
-			await queryClient.prefetchQuery(['movies', 'page'], getAllMoviesList);
-		},
+		loader: () => <MoviesLoader />,
 	},
 	{
 		path: '/series',

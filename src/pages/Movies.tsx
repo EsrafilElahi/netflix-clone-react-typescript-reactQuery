@@ -1,4 +1,5 @@
 import React from 'react';
+import { useQuery } from 'react-query';
 
 interface MovieProps {
 	title: string;
@@ -6,7 +7,16 @@ interface MovieProps {
 
 const Movies: React.FC<MovieProps> = (props) => {
 	const { title } = props;
-	// ['movies', 'page']
+	const { data, error, isLoading } = useQuery<any>(['movies', 'page']);
+
+	console.log('data movies page :', data);
+
+	if (isLoading) {
+		return <div>loading...</div>;
+	}
+	if (error) {
+		return <div>error</div>;
+	}
 
 	return <div>hi {title} page</div>;
 };
