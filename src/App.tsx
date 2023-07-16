@@ -26,7 +26,7 @@ const router = createBrowserRouter([
 
 			const getAllMoviesList = await fetchData(import.meta.env.VITE_TRENDING_MOVIES);
 
-			await queryClient.prefetchQuery('todos', getAllMoviesList);
+			await queryClient.prefetchQuery(['movies', 'page'], getAllMoviesList);
 		},
 	},
 	{
