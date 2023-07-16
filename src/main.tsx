@@ -37,7 +37,6 @@ const fetchAllDefaultsHomePage = async (): Promise<Value[]> => {
 			// 	}
 			// 	return accumulator;
 			// }, []);
-
 			queryClient.setQueryData(['home', 'trendings', 'favorites', 'series'], data);
 			return data;
 		})
