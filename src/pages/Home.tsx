@@ -1,10 +1,11 @@
 import HeroImage from 'assets/images/bg.jpg';
-import MovieItem from 'components/Movie/MovieItem';
-import React,{ useEffect,useState } from 'react';
-import { Helmet } from "react-helmet";
+import React,{ lazy,Suspense,useEffect,useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useQuery } from 'react-query';
 import styles from 'styles/pages_styles/Home.module.css';
 import { Result,Value } from 'types/HomePageTypes';
+const MovieItem = lazy(() => import('components/Movie/MovieItem'));
+
 
 
 type HomeProps = {
@@ -21,7 +22,6 @@ const Home: React.FC<HomeProps> = (props) => {
 	const trendings = Array.isArray(homeData) ? homeData[0] : undefined;
 	const favorites = Array.isArray(homeData) ? homeData[1] : undefined;
 	const series = Array.isArray(homeData) ? homeData[2] : undefined;
-	console.log('trendings :', trendings);
 
 	if (isLoading) {
 		return <div>loading...</div>;
@@ -43,7 +43,34 @@ const Home: React.FC<HomeProps> = (props) => {
 			<div className={`w-full h-screen absolute z-2 ${styles.bgGradient}`}></div>
 
 			{/* trendings */}
-			<section className={styles.scrollSection}>{trendings?.results?.map((trend) => <MovieItem key={trend.id} {...trend} />)}</section>
+			<section className='flex flex-col p-4 gap-4'>
+				<h2 className='font-barlowBold text-3xl drop-shadow-lg tracking-[.3rem]'>Trending</h2>
+				<section className={styles.scrollSection}>
+					<Suspense fallback={<span>loading...</span>}>
+						{trendings?.results?.map((item) => <MovieItem key={item.id as number} item={item} />)}
+					</Suspense>
+				</section>
+			</section>
+
+			{/* favorites */}
+			<section className='flex flex-col p-4 gap-4'>
+				<h2 className='font-barlowBold text-3xl drop-shadow-lg tracking-[.3rem]'>Favorites</h2>
+				<section className={styles.scrollSection}>
+					<Suspense fallback={<span>loading...</span>}>
+						{favorites?.results?.map((item) => <MovieItem key={item.id as number} item={item} />)}
+					</Suspense>
+				</section>
+			</section>
+
+			{/* series */}
+			<section className='flex flex-col p-4 gap-4'>
+				<h2 className='font-barlowBold text-3xl drop-shadow-lg tracking-[.3rem]'>Series</h2>
+				<section className={styles.scrollSection}>
+					<Suspense fallback={<span>loading...</span>}>
+						{series?.results?.map((item) => <MovieItem key={item.id as number} item={item} />)}
+					</Suspense>
+				</section>
+			</section>
 		</div>
 	);
 };
