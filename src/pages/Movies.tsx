@@ -1,5 +1,6 @@
 import React from 'react';
-import { useQuery } from 'react-query';
+import { useQuery,useQueryClient } from 'react-query';
+import { fetchData } from '../api gateway/HomePage';
 
 interface MovieProps {
 	title: string;
@@ -7,9 +8,16 @@ interface MovieProps {
 
 const Movies: React.FC<MovieProps> = (props) => {
 	const { title } = props;
-	const { data, error, isLoading } = useQuery<any>(['movies', 'page']);
+	const queryClient = useQueryClient();
+	
+	const fetchMovies = async () => {
+		const res = await fetchData(import.meta.env.VITE_ALL_MOVIES);
+		return res;
+	};
 
-	console.log('/movies/ page :', data);
+	const { data: moviesList, error, isLoading } = useQuery<any>(['movies', 'page'], fetchMovies);
+
+	console.log('/movies/ :', moviesList);
 
 	if (isLoading) {
 		return <div>loading...</div>;

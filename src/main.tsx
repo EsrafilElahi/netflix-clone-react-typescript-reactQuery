@@ -53,6 +53,7 @@ export const queryClient = new QueryClient({
 			queryKey: ['home', 'trendings', 'favorites', 'series'],
 			queryFn: fetchAllDefaultsHomePage,
 			initialData: [],
+			retry: 3,
 		},
 	},
 });
