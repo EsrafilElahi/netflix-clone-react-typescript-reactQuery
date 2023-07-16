@@ -2,7 +2,7 @@ import axios from "./axios";
 import { AxiosResponse } from "axios";
 
 
-async function fetchData(url: string): Promise<any> {
+export async function fetchData(url: string): Promise<any> {
   try {
     const response: AxiosResponse = await axios.get(url, {
       params: {
