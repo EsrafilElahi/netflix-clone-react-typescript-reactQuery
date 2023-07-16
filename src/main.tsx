@@ -2,7 +2,7 @@ import ErrorBoundary from 'components/other/ErrorBoundary';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { QueryClient,QueryClientProvider,useQuery } from 'react-query';
-import { Result,Value } from 'types/HomePageTypes';
+import { Value } from 'types/HomePageTypes';
 import App from './App.tsx';
 import { fetchHomePage } from './api gateway/HomePage.ts';
 import './styles/index.css';
