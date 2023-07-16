@@ -19,7 +19,7 @@
 
 .scrollSection{
   display: flex;
-  /* padding: 1rem; */
+  padding: 1rem 0;
   gap: 2rem;
   overflow-x: auto;
   scroll-behavior: smooth;
