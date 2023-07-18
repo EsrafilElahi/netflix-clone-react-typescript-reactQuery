@@ -7,7 +7,6 @@ import { Result,Value } from 'types/HomePageTypes';
 const MovieItem = lazy(() => import('components/Movie/MovieItem'));
 
 
-
 type HomeProps = {
 	title: string;
 };
