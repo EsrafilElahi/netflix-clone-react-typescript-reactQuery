@@ -1,5 +1,5 @@
 import MovieItem from 'components/Movie/MovieItem';
-import React,{ useEffect,useState } from 'react';
+import React,{ useEffect,useRef,useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useInfiniteQuery,useQuery,useQueryClient } from 'react-query';
 import { Result,Value } from 'types/HomePageTypes';
@@ -13,6 +13,7 @@ const Movies: React.FC<MovieProps> = (props) => {
 	const { title } = props;
 
 	const [page, setPage] = useState<number>(1);
+	const containerRef = useRef<HTMLDivElement | null>(null);
 
 	const fetchMovies = async (page: number) => {
 		const res = await fetchData(
@@ -25,16 +26,13 @@ const Movies: React.FC<MovieProps> = (props) => {
 		keepPreviousData: true,
 	});
 
-	  const handleScrollToTop = () => {
-			window.scrollTo({ top: 0, behavior: 'smooth' });
-		};
+	const handleScrollToTop = () => {
+		(containerRef.current as Element).scrollTo({ top: 0, behavior: 'smooth' });
+	};
 
-		useEffect(() => {
-			if (!isFetching) {
-				handleScrollToTop();
-			}
-		}, [page]);
-
+	useEffect(() => {
+		handleScrollToTop();
+	}, [page]);
 
 	console.log('data movs :', data);
 
@@ -46,7 +44,7 @@ const Movies: React.FC<MovieProps> = (props) => {
 	}
 
 	return (
-		<div className='px-3 py-5 mt-[3rem]'>
+		<div className='px-3 py-5 mt-[3rem]' ref={containerRef}>
 			<Helmet>
 				<title>Netflix | {title}</title>
 			</Helmet>
