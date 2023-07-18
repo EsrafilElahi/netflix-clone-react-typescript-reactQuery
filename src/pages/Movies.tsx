@@ -44,10 +44,11 @@ const Movies: React.FC<MoviesProps> = (props) => {
 	}
 
 	return (
-		<div className='px-3 py-5 mt-[3rem]' ref={containerRef}>
+		<div className='px-3 py-5 mt-[3rem]'>
 			<Helmet>
 				<title>Netflix | {title}</title>
 			</Helmet>
+			<div ref={containerRef}></div>
 			{isLoading ? (
 				<div>Loading...</div>
 			) : isError ? (
@@ -62,6 +63,7 @@ const Movies: React.FC<MoviesProps> = (props) => {
 					<span>loading...</span>
 				) : (
 					<>
+						<span onClick={handleScrollToTop}>go uppppppppppppppppppppppppppp</span>
 						<button onClick={() => setPage((prev) => prev - 1)} disabled={page === 1}>
 							Previous Page
 						</button>{' '}
