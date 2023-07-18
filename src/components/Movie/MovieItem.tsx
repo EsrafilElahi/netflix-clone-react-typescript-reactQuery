@@ -18,15 +18,14 @@ export const isResult2 = (value: Partial<Result1> | Partial<Result2>): value is 
 };
 
 const MovieItem: React.FC<MovieItemProp> = (props) => {
-
 	// const { original_title, original_name, release_date, first_air_date, poster_path } = props.item;
 	const [hovered, setHovered] = useState<boolean>(false);
-	
-	if (isResult1(props.item)) {
-		console.log('props.item 1 :', props.item);
-	} else {
-		console.log('props.item 2 :', props.item);
-	}
+
+	// if (isResult1(props.item)) {
+	// 	console.log('props.item 1 :', props.item);
+	// } else {
+	// 	console.log('props.item 2 :', props.item);
+	// }
 
 	const getYear = () => {
 		const releaseDate = isResult1(props.item) ? props.item.first_air_date : props.item.release_date;
@@ -38,7 +37,7 @@ const MovieItem: React.FC<MovieItemProp> = (props) => {
 		}
 
 		return null;
-	}; 
+	};
 
 	return (
 		<div
