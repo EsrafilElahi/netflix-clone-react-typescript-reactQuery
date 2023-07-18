@@ -27,9 +27,8 @@ const Series: React.FC<SeriesProps> = (props) => {
 	});
 
   const handleScrollToTop = () => {
-		(containerRef.current as Element).scrollTo({ top: 0, behavior: 'smooth' });
+		(containerRef.current as Element).scrollIntoView({ behavior: 'smooth', block: 'start' });
 	};
-
 
 	useEffect(() => {
 		handleScrollToTop();
