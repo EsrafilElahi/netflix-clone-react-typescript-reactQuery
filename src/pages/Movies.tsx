@@ -1,5 +1,5 @@
 import MovieItem from 'components/Movie/MovieItem';
-import React,{ useState } from 'react';
+import React,{ useEffect,useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useInfiniteQuery,useQuery,useQueryClient } from 'react-query';
 import { Result,Value } from 'types/HomePageTypes';
@@ -11,7 +11,6 @@ interface MovieProps {
 
 const Movies: React.FC<MovieProps> = (props) => {
 	const { title } = props;
-	const queryClient = useQueryClient();
 
 	const [page, setPage] = useState<number>(1);
 
@@ -22,15 +21,20 @@ const Movies: React.FC<MovieProps> = (props) => {
 		return res;
 	};
 
-	// const { data: moviesList, error, isLoading } = useQuery<Value[] | Value>(['movies', 'page'], fetchMovies);
+	const { isLoading, isError, error, data, isFetching } = useQuery<Value>(['movies', page], () => fetchMovies(page), {
+		keepPreviousData: true,
+	});
 
-	// console.log('/movies/ :', moviesList);
+	  const handleScrollToTop = () => {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		};
 
-	const { isLoading, isError, error, data, isFetching, isPreviousData } = useQuery<Value>(
-		['movies', page],
-		() => fetchMovies(page),
-		{ keepPreviousData: true }
-	);
+		useEffect(() => {
+			if (!isFetching) {
+				handleScrollToTop();
+			}
+		}, [page]);
+
 
 	console.log('data movs :', data);
 
@@ -56,11 +60,16 @@ const Movies: React.FC<MovieProps> = (props) => {
 				</div>
 			)}
 			<div className='flex justify-center mt-10 gap-10'>
-				<button onClick={() => setPage((prev) => prev - 1)} disabled={page === 1}>
-					Previous Page
-				</button>{' '}
-				<button onClick={() => setPage((prev) => prev + 1)}>Next Page</button>
-				{isFetching ? <span> Loading...</span> : null}{' '}
+				{isFetching ? (
+					<span>loading...</span>
+				) : (
+					<>
+						<button onClick={() => setPage((prev) => prev - 1)} disabled={page === 1}>
+							Previous Page
+						</button>{' '}
+						<button onClick={() => setPage((prev) => prev + 1)}>Next Page</button>
+					</>
+				)}
 			</div>
 		</div>
 	);
