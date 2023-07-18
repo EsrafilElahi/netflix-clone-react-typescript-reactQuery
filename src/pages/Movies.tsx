@@ -1,7 +1,7 @@
 import MovieItem from 'components/Movie/MovieItem';
 import React,{ useEffect,useRef,useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { useInfiniteQuery,useQuery,useQueryClient } from 'react-query';
+import { useQuery } from 'react-query';
 import { Result,Value } from 'types/HomePageTypes';
 import { fetchData } from '../api gateway/HomePage';
 
@@ -27,7 +27,7 @@ const Movies: React.FC<MoviesProps> = (props) => {
 	});
 
 	const handleScrollToTop = () => {
-		(containerRef.current as Element).scrollTo({ top: 0, behavior: 'smooth' });
+    (containerRef.current as Element).scrollIntoView({ behavior: 'smooth', block: 'start' });
 	};
 
 	useEffect(() => {
@@ -44,11 +44,11 @@ const Movies: React.FC<MoviesProps> = (props) => {
 	}
 
 	return (
-		<div className='px-3 py-5 mt-[3rem]'>
+		<div className='px-3 py-5 mt-[3rem]' ref={containerRef}>
 			<Helmet>
 				<title>Netflix | {title}</title>
 			</Helmet>
-			<div ref={containerRef}></div>
+
 			{isLoading ? (
 				<div>Loading...</div>
 			) : isError ? (

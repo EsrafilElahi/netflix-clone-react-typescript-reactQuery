@@ -8,13 +8,12 @@ interface DesktopLayoutProps {
 }
 
 const DesktopLayout: React.FC<DesktopLayoutProps> = ({ children }) => {
-	const params = useLocation();
-	console.log('params :', params);
+	const locs = useLocation();
 
 	return (
 		<div className='w-full h-full flex flex-col'>
 			<header className=''>
-				<Navbar scrollable={params.pathname === '/'} />
+				<Navbar />
 			</header>
 			<main className='grow'>{children}</main>
 			<footer className=''>
