@@ -62,7 +62,6 @@ const Series: React.FC<SeriesProps> = (props) => {
 					<span>loading...</span>
 				) : (
 					<>
-						<span onClick={handleScrollToTop}>go uppppppppppppppppppppppppppp</span>
 						<button onClick={() => setPage((prev) => prev - 1)} disabled={page === 1}>
 							Previous Page
 						</button>{' '}
