@@ -46,7 +46,8 @@ const Home: React.FC<HomeProps> = (props) => {
 				<h2 className='font-barlowBold text-3xl drop-shadow-lg tracking-[.3rem]'>Trending</h2>
 				<section className={styles.scrollSection}>
 					<Suspense fallback={<span>loading...</span>}>
-						{trendings?.results?.map((item) => <MovieItem key={item.id as number} item={item} />)}
+						{Array.isArray(trendings?.results) &&
+							trendings?.results?.map((item) => <MovieItem key={item.id as number} item={item} />)}
 					</Suspense>
 				</section>
 			</section>
@@ -56,7 +57,8 @@ const Home: React.FC<HomeProps> = (props) => {
 				<h2 className='font-barlowBold text-3xl drop-shadow-lg tracking-[.3rem]'>Favorites</h2>
 				<section className={styles.scrollSection}>
 					<Suspense fallback={<span>loading...</span>}>
-						{favorites?.results?.map((item) => <MovieItem key={item.id as number} item={item} />)}
+						{Array.isArray(favorites?.results) &&
+							favorites?.results?.map((item) => <MovieItem key={item.id as number} item={item} />)}
 					</Suspense>
 				</section>
 			</section>
@@ -66,7 +68,8 @@ const Home: React.FC<HomeProps> = (props) => {
 				<h2 className='font-barlowBold text-3xl drop-shadow-lg tracking-[.3rem]'>Series</h2>
 				<section className={styles.scrollSection}>
 					<Suspense fallback={<span>loading...</span>}>
-						{series?.results?.map((item) => <MovieItem key={item.id as number} item={item} />)}
+						{Array.isArray(series?.results) &&
+							series?.results?.map((item) => <MovieItem key={item.id as number} item={item} />)}
 					</Suspense>
 				</section>
 			</section>
