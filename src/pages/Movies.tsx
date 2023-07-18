@@ -1,6 +1,8 @@
+import MovieItem from 'components/Movie/MovieItem';
 import React,{ useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useInfiniteQuery,useQuery,useQueryClient } from 'react-query';
-import { Value } from 'types/HomePageTypes';
+import { Result,Value } from 'types/HomePageTypes';
 import { fetchData } from '../api gateway/HomePage';
 
 interface MovieProps {
@@ -24,17 +26,13 @@ const Movies: React.FC<MovieProps> = (props) => {
 
 	// console.log('/movies/ :', moviesList);
 
-	const { isLoading, isError, error, data, isFetching, isPreviousData } = useQuery(
+	const { isLoading, isError, error, data, isFetching, isPreviousData } = useQuery<Value>(
 		['movies', page],
 		() => fetchMovies(page),
 		{ keepPreviousData: true }
 	);
 
 	console.log('data movs :', data);
-
-	const fetchAgain = () => {
-		setPage((prev) => prev + 1);
-	};
 
 	if (isLoading) {
 		return <div>loading...</div>;
@@ -44,20 +42,26 @@ const Movies: React.FC<MovieProps> = (props) => {
 	}
 
 	return (
-		<div>
+		<div className='px-3 py-5 mt-[3rem]'>
+			<Helmet>
+				<title>Netflix | {title}</title>
+			</Helmet>
 			{isLoading ? (
 				<div>Loading...</div>
 			) : isError ? (
 				<div>Error: </div>
 			) : (
-				<div>{data.results?.map((project: any) => <p key={project.id}>{project.id}</p>)}</div>
+				<div className='flex flex-wrap justify-center sm:justify-between items-center gap-8 '>
+					{(data?.results as Result[])?.map((project) => <MovieItem key={project.id} item={project} />)}
+				</div>
 			)}
-			<span>Current Page: {page + 1}</span>
-			<button onClick={() => setPage((prev) => prev - 1)} disabled={page === 1}>
-				Previous Page
-			</button>{' '}
-			<button onClick={() => setPage((prev) => prev + 1)}>Next Page</button>
-			{isFetching ? <span> Loading...</span> : null}{' '}
+			<div className='flex justify-center mt-10 gap-10'>
+				<button onClick={() => setPage((prev) => prev - 1)} disabled={page === 1}>
+					Previous Page
+				</button>{' '}
+				<button onClick={() => setPage((prev) => prev + 1)}>Next Page</button>
+				{isFetching ? <span> Loading...</span> : null}{' '}
+			</div>
 		</div>
 	);
 };
