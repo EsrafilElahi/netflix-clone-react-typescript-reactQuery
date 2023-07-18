@@ -31,8 +31,10 @@ const Series: React.FC<SeriesProps> = (props) => {
 	};
 
 	useEffect(() => {
-		handleScrollToTop();
-	}, [page]);
+		if (!isFetching) {
+			handleScrollToTop();
+		}
+	}, [page, isFetching]);
 
 	console.log('data movs :', data);
 

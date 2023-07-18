@@ -31,8 +31,10 @@ const Movies: React.FC<MoviesProps> = (props) => {
 	};
 
 	useEffect(() => {
-		handleScrollToTop();
-	}, [page]);
+		if (!isFetching) {
+			handleScrollToTop();
+		}
+	}, [page, isFetching]);
 
 	console.log('data movs :', data);
 
