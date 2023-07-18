@@ -5,11 +5,11 @@ import { useInfiniteQuery,useQuery,useQueryClient } from 'react-query';
 import { Result,Value } from 'types/HomePageTypes';
 import { fetchData } from '../api gateway/HomePage';
 
-interface MovieProps {
+interface MoviesProps {
 	title: string;
 }
 
-const Movies: React.FC<MovieProps> = (props) => {
+const Movies: React.FC<MoviesProps> = (props) => {
 	const { title } = props;
 
 	const [page, setPage] = useState<number>(1);
