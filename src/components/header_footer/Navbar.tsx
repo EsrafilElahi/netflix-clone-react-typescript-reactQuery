@@ -22,13 +22,13 @@ const navs: Nav[] = [
 ];
 
 interface NavBarProps {
-	scrollable: boolean;
+	scrollable?: boolean;
 }
 
 const Navbar: React.FC<NavBarProps> = (props) => {
 	return (
 		<div>
-			<nav className={`${props.scrollable && 'absolute'} z-10 p-3 w-full`}>
+			<nav className={`absolute z-10 p-3 w-full`}>
 				{navs.map((nav) => (
 					<NavbarItem key={nav.id as IDs} nav={nav} />
 				))}
