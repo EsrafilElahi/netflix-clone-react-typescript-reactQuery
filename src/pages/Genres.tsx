@@ -42,7 +42,7 @@ const Genres: React.FC<GenresProps> = (props) => {
 
   const cachedData = queryClient.getQueryData<any>(['genre', (selectedOption as any)?.id]);
 
-  console.log('genre :', cachedData);
+  console.log('cachedData :', cachedData);
 
 	  const handleGenreChange = (selectedGenre: Genre) => {
 			setSelectedOption(selectedGenre);
@@ -55,17 +55,15 @@ const Genres: React.FC<GenresProps> = (props) => {
 				<title>Netflix | {title}</title>
 			</Helmet>
 
-			{cachedData ? (
+			{!cachedData ? (
 				<div>Loading...</div>
-			) : cachedData ? (
-				<div>Error: </div>
 			) : (
 				<div className='flex flex-wrap justify-center sm:justify-between items-center gap-8 '>
 					{(cachedData?.results as Result[])?.map((project) => <MovieItem key={project.id} item={project} />)}
 				</div>
 			)}
 			<div className='flex justify-center mt-10 gap-10'>
-				{cachedData ? (
+				{!cachedData ? (
 					<span>loading...</span>
 				) : (
 					<>
