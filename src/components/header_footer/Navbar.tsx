@@ -1,5 +1,4 @@
 import React from 'react';
-import Select from '../other/Select';
 import NavbarItem from './NavbarItem';
 import type { IDs,Nav } from './types';
 
@@ -18,11 +17,6 @@ const navs: Nav[] = [
 		id: 'series',
 		name: 'Series',
 		link: '/series',
-	},
-	{
-		id: 'genres',
-		name: 'Genres',
-		link: '/genres',
 	},
 ];
 interface NavBarProps {

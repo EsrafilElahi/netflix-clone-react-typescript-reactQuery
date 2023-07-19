@@ -30,8 +30,16 @@ const router = createBrowserRouter([
 		path: '/genres',
 		element: <GenresLayout title='genres' />,
 	},
+	{
+		path: '/movie-details/:id',
+		element: <GenresLayout title='movie details' />,
+	},
+	{
+		path: '/serie-details/:id',
+		element: <GenresLayout title='serie details' />,
+	},
 ]);
-
+// https://api.themoviedb.org/3/movie/{movie_id}?language=en-US
 
 const App: React.FC = () => {
 	return (
