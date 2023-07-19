@@ -1,6 +1,6 @@
 import React from 'react';
 import NavbarItem from './NavbarItem';
-import type { IDs,Nav } from './types';
+import type { IDs, Nav } from './types';
 
 const navs: Nav[] = [
 	{
@@ -23,11 +23,7 @@ interface NavBarProps {
 	scrollable?: boolean;
 }
 
-
-
 const Navbar: React.FC<NavBarProps> = (props) => {
-
-
 	return (
 		<div>
 			<nav className={`absolute z-10 p-3 w-full`}>

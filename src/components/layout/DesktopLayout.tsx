@@ -4,7 +4,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 
 interface DesktopLayoutProps {
-	children: React.ReactNode
+	children: React.ReactNode;
 }
 
 const DesktopLayout: React.FC<DesktopLayoutProps> = ({ children }) => {

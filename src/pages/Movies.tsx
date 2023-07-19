@@ -1,8 +1,8 @@
 import MovieItem from 'components/Movie/MovieItem';
-import React,{ useEffect,useRef,useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useQuery } from 'react-query';
-import { Result,Value } from 'types/HomePageTypes';
+import { Result, Value } from 'types/HomePageTypes';
 import { fetchData } from '../api gateway/HomePage';
 
 interface MoviesProps {
@@ -27,7 +27,7 @@ const Movies: React.FC<MoviesProps> = (props) => {
 	});
 
 	const handleScrollToTop = () => {
-    (containerRef.current as Element).scrollIntoView({ behavior: 'smooth', block: 'start' });
+		(containerRef.current as Element).scrollIntoView({ behavior: 'smooth', block: 'start' });
 	};
 
 	useEffect(() => {

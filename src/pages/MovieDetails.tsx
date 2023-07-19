@@ -1,9 +1,9 @@
 import MovieItem from 'components/Movie/MovieItem';
-import React,{ useDebugValue,useEffect,useRef,useState } from 'react';
+import React, { useDebugValue, useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
-import { Result1,Result2,Value } from 'types/HomePageTypes';
+import { Result1, Result2, Value } from 'types/HomePageTypes';
 import { fetchData } from '../api gateway/HomePage';
 
 interface MovieDetailsProps {
@@ -21,8 +21,7 @@ export const isResult2 = (value: Partial<Result1> | Partial<Result2>): value is 
 const MoviesDetails: React.FC<MovieDetailsProps> = (props) => {
 	const { title } = props;
 
-  const { id } = useParams();
-
+	const { id } = useParams();
 
 	const fetchMovieDetails = async () => {
 		const res = await fetchData(`https://api.themoviedb.org/3/movie/${id}?language=en-US`);

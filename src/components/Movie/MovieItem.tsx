@@ -1,7 +1,7 @@
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from 'styles/pages_styles/Home.module.css';
-import { Result1,Result2 } from 'types/HomePageTypes';
+import { Result1, Result2 } from 'types/HomePageTypes';
 
 // type RequiredValues = 'original_title' | 'poster_path' | 'release_date' | 'original_name' | 'first_air_date';
 // type MovieItemProps = Partial<Result> & Required<Pick<Result, RequiredValues>>;
@@ -9,8 +9,8 @@ import { Result1,Result2 } from 'types/HomePageTypes';
 type MovieItemProp = {
 	item: Partial<Result1> | Partial<Result2>;
 	serie?: boolean;
-	series?: boolean
-	movies?: boolean
+	series?: boolean;
+	movies?: boolean;
 };
 
 export const isResult1 = (value: Partial<Result1> | Partial<Result2>): value is Partial<Result1> => {
@@ -53,7 +53,7 @@ const MovieItem: React.FC<MovieItemProp> = (props) => {
 		} else {
 			navigate(`movie-details/${props.item.id}`);
 		}
-	}
+	};
 
 	return (
 		<div

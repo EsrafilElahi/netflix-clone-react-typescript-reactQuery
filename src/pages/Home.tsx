@@ -1,11 +1,10 @@
 import HeroImage from 'assets/images/bg.jpg';
-import React,{ lazy,Suspense,useEffect,useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useQuery } from 'react-query';
 import styles from 'styles/pages_styles/Home.module.css';
-import { Result,Value } from 'types/HomePageTypes';
+import { Result, Value } from 'types/HomePageTypes';
 const MovieItem = lazy(() => import('components/Movie/MovieItem'));
-
 
 type HomeProps = {
 	title: string;

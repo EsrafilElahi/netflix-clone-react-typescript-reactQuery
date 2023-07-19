@@ -1,5 +1,5 @@
-import React from "react";
-import { NavLink,useMatches } from 'react-router-dom';
+import React from 'react';
+import { NavLink, useMatches } from 'react-router-dom';
 import type { LinkProp } from './types';
 
 const Footer = () => {

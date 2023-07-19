@@ -1,7 +1,6 @@
-import React,{ useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { fetchData } from '../../api gateway/HomePage';
-
 
 interface Genre {
 	id: number;
@@ -34,12 +33,9 @@ function Select(props: SelectProps) {
 		return res;
 	};
 
-		useQuery<any>(
-		['genre', (selectedOption as any)?.id],
-		() => fetchGenre((selectedOption as any)?.id)
-	);
+	useQuery<any>(['genre', (selectedOption as any)?.id], () => fetchGenre((selectedOption as any)?.id));
 
-		// console.log('data genre select :', data);
+	// console.log('data genre select :', data);
 
 	useEffect(() => {
 		fetchGenre((selectedOption as Genre)?.id);

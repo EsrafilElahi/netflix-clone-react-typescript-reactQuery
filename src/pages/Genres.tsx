@@ -1,19 +1,19 @@
 import HeroImage from 'assets/images/bg.jpg';
 import Select from 'components/other/Select';
-import React,{ lazy,Suspense,useEffect,useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { useQuery,useQueryClient } from 'react-query';
+import { useQuery, useQueryClient } from 'react-query';
 import styles from 'styles/pages_styles/Home.module.css';
-import { Result,Value } from 'types/HomePageTypes';
+import { Result, Value } from 'types/HomePageTypes';
 const MovieItem = lazy(() => import('components/Movie/MovieItem'));
 
 type GenresProps = {
-  title: string;
+	title: string;
 };
 
 type Genre = {
-  id: number;
-  name: string;
+	id: number;
+	name: string;
 };
 
 const genres: Genre[] = [
@@ -34,23 +34,22 @@ const genres: Genre[] = [
 ];
 
 const Genres: React.FC<GenresProps> = (props) => {
-  const { title } = props;
+	const { title } = props;
 
 	const [page, setPage] = useState<number>(1);
 	const queryClient = useQueryClient();
 
 	const [selectedOption, setSelectedOption] = useState<any | null>(null);
 
-  const cachedData = queryClient.getQueryData<any>(['genre', selectedOption]);
+	const cachedData = queryClient.getQueryData<any>(['genre', selectedOption]);
 
-  console.log('cachedData :', cachedData);
+	console.log('cachedData :', cachedData);
 
 	const handleGenreChange = (selectedGenre: any) => {
 		setSelectedOption(selectedGenre);
 	};
 
-
-  return (
+	return (
 		<div className='h-full relative'>
 			<Helmet>
 				<title>Netflix | {title}</title>

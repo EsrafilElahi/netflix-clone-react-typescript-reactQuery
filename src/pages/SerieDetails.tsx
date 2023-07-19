@@ -1,9 +1,9 @@
 import MovieItem from 'components/Movie/MovieItem';
-import React,{ useDebugValue,useEffect,useRef,useState } from 'react';
+import React, { useDebugValue, useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
-import { Result1,Result2,Value } from 'types/HomePageTypes';
+import { Result1, Result2, Value } from 'types/HomePageTypes';
 import { fetchData } from '../api gateway/HomePage';
 
 interface SerieDetailsProps {

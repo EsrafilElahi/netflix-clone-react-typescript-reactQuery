@@ -1,12 +1,11 @@
 import ErrorBoundary from 'components/other/ErrorBoundary';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { QueryClient,QueryClientProvider,useQuery } from 'react-query';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 import { Value } from 'types/HomePageTypes';
 import App from './App.tsx';
 import { fetchHomePage } from './api gateway/HomePage.ts';
 import './styles/index.css';
-
 
 const homePageURLs: string[] = [
 	import.meta.env.VITE_TRENDING_MOVIES,
@@ -14,11 +13,9 @@ const homePageURLs: string[] = [
 	import.meta.env.VITE_ALL_SERIES,
 ];
 
-
 type PromiseFulFilled = { status: 'fulfilled'; value: Value };
 type PromiseRejected = { status: 'rejected'; reason: any };
 type PromiseSettledResult = PromiseFulFilled | PromiseRejected;
-
 
 const fetchAllDefaultsHomePage = async (): Promise<Value[]> => {
 	return fetchHomePage(homePageURLs)
@@ -57,7 +54,6 @@ export const queryClient = new QueryClient({
 		},
 	},
 });
-
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>

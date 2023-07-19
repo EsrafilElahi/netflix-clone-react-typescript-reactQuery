@@ -1,4 +1,4 @@
-import React,{ ComponentType } from 'react';
+import React, { ComponentType } from 'react';
 import Layout from './MainLayout';
 
 type WithLayoutProps = {

@@ -1,8 +1,8 @@
 import MovieItem from 'components/Movie/MovieItem';
-import React,{ useEffect,useRef,useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { useInfiniteQuery,useQuery,useQueryClient } from 'react-query';
-import { Result,Value } from 'types/HomePageTypes';
+import { useInfiniteQuery, useQuery, useQueryClient } from 'react-query';
+import { Result, Value } from 'types/HomePageTypes';
 import { fetchData } from '../api gateway/HomePage';
 
 interface SeriesProps {
@@ -26,7 +26,7 @@ const Series: React.FC<SeriesProps> = (props) => {
 		keepPreviousData: true,
 	});
 
-  const handleScrollToTop = () => {
+	const handleScrollToTop = () => {
 		(containerRef.current as Element).scrollIntoView({ behavior: 'smooth', block: 'start' });
 	};
 

@@ -1,7 +1,7 @@
 // eslint-disable-next-line prettier/prettier
 import WithLayout from 'components/layout/WithLayout';
 import React from 'react';
-import { createBrowserRouter,RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Genres from './pages/Genres';
 import Home from './pages/Home';
 import MovieDetails from './pages/MovieDetails';
@@ -15,8 +15,6 @@ const SeriesLayout = WithLayout(Series);
 const GenresLayout = WithLayout(Genres);
 const MovieDetailsLayout = WithLayout(MovieDetails);
 const SerieDetailsLayout = WithLayout(SeriesDetails);
-
-
 
 const router = createBrowserRouter([
 	{
