@@ -4,13 +4,18 @@ import React from 'react';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import Genres from './pages/Genres';
 import Home from './pages/Home';
+import MovieDetails from './pages/MovieDetails';
 import Movies from './pages/Movies';
+import SeriesDetails from './pages/SerieDetails';
 import Series from './pages/Series';
 
 const HomeLayout = WithLayout(Home);
 const MoviesLayout = WithLayout(Movies);
 const SeriesLayout = WithLayout(Series);
 const GenresLayout = WithLayout(Genres);
+const MovieDetailsLayout = WithLayout(MovieDetails);
+const SerieDetailsLayout = WithLayout(SeriesDetails);
+
 
 
 const router = createBrowserRouter([
@@ -32,11 +37,11 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/movie-details/:id',
-		element: <GenresLayout title='movie details' />,
+		element: <MovieDetailsLayout title='movie details' />,
 	},
 	{
 		path: '/serie-details/:id',
-		element: <GenresLayout title='serie details' />,
+		element: <SerieDetailsLayout title='serie details' />,
 	},
 ]);
 // https://api.themoviedb.org/3/movie/{movie_id}?language=en-US
