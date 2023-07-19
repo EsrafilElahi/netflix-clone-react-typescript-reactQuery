@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "DISABLE_ESLINT_PLUGIN=true tsc && vite build",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint --fix --ext .ts,.tsx",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
