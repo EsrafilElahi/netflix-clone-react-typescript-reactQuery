@@ -4,3 +4,5 @@ env.d.ts
 .DS_Store
 dist-ssr
 *.local
+.ts
+.tsx
