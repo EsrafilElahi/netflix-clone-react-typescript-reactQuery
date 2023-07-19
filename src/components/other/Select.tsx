@@ -3,23 +3,23 @@ import { useQuery } from 'react-query';
 import { fetchData } from '../../api gateway/HomePage';
 
 
-interface SelectOption<T extends string> {
-	value: T;
-	label: string;
+interface SelectOption {
+	id: number;
+	name: string;
 }
-interface SelectProps<T extends string> {
-	options: SelectOption<T>[];
-	onChange: (selectedOption: SelectOption<T>) => void;
+interface SelectProps {
+	options: SelectOption[];
+	onChange: (selectedOption: SelectOption) => void;
 }
 
-function Select<T extends string>(props: SelectProps<T>) {
+function Select(props: SelectProps) {
 	const { options, onChange } = props;
-	const [selectedOption, setSelectedOption] = useState<SelectOption<T> | null>(null);
+	const [selectedOption, setSelectedOption] = useState<SelectOption | null>(null);
 
 	const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-		const selectedValue = event.target.value as T;
+		const selectedValue = parseInt(event.target.value);
 
-		const selectedOption = options.find((option) => option.value === selectedValue);
+		const selectedOption = options.find((option) => option.id === selectedValue);
 		if (selectedOption) {
 			setSelectedOption(selectedOption);
 			onChange(selectedOption);
@@ -41,16 +41,14 @@ function Select<T extends string>(props: SelectProps<T>) {
 
 	return (
 		<select
-			value={selectedOption?.value || ''}
+			value={selectedOption?.id || ''}
 			onChange={handleSelectChange}
-			className='appearance-none cursor-pointer text-xl bg-white border border-gray-300 px-4 py-2 rounded-md shadow-sm leading-tight focus:outline-none'
+			className='appearance-none cursor-pointer text-xl bg-transparent text-white border border-gray-300 px-4 py-2 rounded-md shadow-sm leading-tight focus:outline-none'
 		>
-			<option value='' className='bg-gray-100 cursor-pointer'>
-				Select an option
-			</option>
+
 			{options.map((option) => (
-				<option key={option.value} value={option.value} className='bg-gray-100 cursor-pointer'>
-					{option.label}
+				<option key={option.id} value={option.id} className='bg-transparent text-gray-600 cursor-pointer'>
+					{option.name}
 				</option>
 			))}
 		</select>

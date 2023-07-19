@@ -24,18 +24,26 @@ interface NavBarProps {
 	scrollable?: boolean;
 }
 
-interface SelectOption<T extends string> {
-	value: T;
-	label: string;
-}
 
-const fruits: string[] = ['Apple', 'Banana', 'Orange'];
 
+type Genre = {
+	id: number;
+	name: string;
+};
+
+const genres: Genre[] = [
+	{ id: 0, name: 'None Genre' },
+	{ id: 1, name: 'Action' },
+	{ id: 2, name: 'Comedy' },
+	{ id: 3, name: 'Sport' },
+	{ id: 4, name: 'Musical' },
+	{ id: 5, name: 'Dram' },
+];
 
 const Navbar: React.FC<NavBarProps> = (props) => {
 
-  const handleFruitChange = (selectedFruit: SelectOption<(typeof fruits)[number]>) => {
-		console.log('Selected fruit:', selectedFruit);
+  const handleFruitChange = (selectedFruit: Genre) => {
+		console.log('Selected movie:', selectedFruit);
 	};
 
 	return (
@@ -44,7 +52,7 @@ const Navbar: React.FC<NavBarProps> = (props) => {
 				{navs.map((nav) => (
 					<NavbarItem key={nav.id as IDs} nav={nav} />
 				))}
-				<Select options={fruits.map((fruit) => ({ value: fruit, label: fruit }))} onChange={handleFruitChange} />
+				<Select options={genres.map((genre) => ({ id: genre.id, name: genre.name }))} onChange={handleFruitChange} />
 			</nav>
 		</div>
 	);
