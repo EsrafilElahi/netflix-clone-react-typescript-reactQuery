@@ -33,11 +33,19 @@ type Genre = {
 
 const genres: Genre[] = [
 	{ id: 0, name: 'None Genre' },
-	{ id: 1, name: 'Action' },
-	{ id: 2, name: 'Comedy' },
-	{ id: 3, name: 'Sport' },
-	{ id: 4, name: 'Musical' },
-	{ id: 5, name: 'Dram' },
+	{ id: 28, name: 'Action' },
+	{ id: 12, name: 'Adventure' },
+	{ id: 16, name: 'Animation' },
+	{ id: 35, name: 'Comedy' },
+	{ id: 80, name: 'Crime' },
+	{ id: 10402, name: 'Musical' },
+	{ id: 10749, name: 'Romance' },
+	{ id: 27, name: 'Horror' },
+	{ id: 36, name: 'History' },
+	{ id: 18, name: 'Drama' },
+	{ id: 37, name: 'Western' },
+	{ id: 10751, name: 'Family' },
+	{ id: 14, name: 'Fantasy' },
 ];
 
 const Navbar: React.FC<NavBarProps> = (props) => {

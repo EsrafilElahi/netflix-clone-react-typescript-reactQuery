@@ -27,7 +27,9 @@ function Select(props: SelectProps) {
 	};
 
 	const fetchGenre = async (genreID: number) => {
-		const res = await fetchData(`https://api.themoviedb.org/3/discover/movie?api_key={apiKey}&with_genres=${genreID}`);
+		const res = await fetchData(
+			`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&with_genres=${genreID}`
+		);
 		return res;
 	};
 
