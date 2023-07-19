@@ -19,10 +19,11 @@ function Select(props: SelectProps) {
 	const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
 		const selectedValue = parseInt(event.target.value);
 
-		const selectedOption = options.find((option) => option.id === selectedValue);
+		const selectedOption: any = options.find((option) => option.id === selectedValue);
+
 		if (selectedOption) {
-			setSelectedOption(selectedOption);
-			onChange(selectedOption);
+			setSelectedOption(selectedOption.id);
+			onChange(selectedOption.id);
 		}
 	};
 

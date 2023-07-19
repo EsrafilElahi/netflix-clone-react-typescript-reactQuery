@@ -35,18 +35,19 @@ const genres: Genre[] = [
 
 const Genres: React.FC<GenresProps> = (props) => {
   const { title } = props;
+
 	const [page, setPage] = useState<number>(1);
-	  const queryClient = useQueryClient();
+	const queryClient = useQueryClient();
 
-		const [selectedOption, setSelectedOption] = useState<any | null>(null);
+	const [selectedOption, setSelectedOption] = useState<any | null>(null);
 
-  const cachedData = queryClient.getQueryData<any>(['genre', (selectedOption as any)?.id]);
+  const cachedData = queryClient.getQueryData<any>(['genre', selectedOption]);
 
   console.log('cachedData :', cachedData);
 
-	  const handleGenreChange = (selectedGenre: Genre) => {
-			setSelectedOption(selectedGenre);
-		};
+	const handleGenreChange = (selectedGenre: any) => {
+		setSelectedOption(selectedGenre);
+	};
 
 
   return (
