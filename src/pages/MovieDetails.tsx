@@ -21,11 +21,11 @@ const MoviesDetails: React.FC<MovieDetailsProps> = (props) => {
 		return res;
 	};
 
-	const { isLoading, isError, error, data, isFetching } = useQuery<Value>(['movies', id], () => fetchMovieDetails(), {
+	const { isLoading, isError, error, data } = useQuery<Value>(['movies', id], () => fetchMovieDetails(), {
 		enabled: !!id,
 	});
 
-	console.log('data movs :', data);
+	console.log('data movie details :', data);
 
 	if (isLoading) {
 		return <div>loading...</div>;
