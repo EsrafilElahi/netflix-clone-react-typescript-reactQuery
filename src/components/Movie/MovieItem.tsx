@@ -1,4 +1,5 @@
 import React,{ useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from 'styles/pages_styles/Home.module.css';
 import { Result1,Result2 } from 'types/HomePageTypes';
 
@@ -27,6 +28,8 @@ const MovieItem: React.FC<MovieItemProp> = (props) => {
 	// 	console.log('props.item 2 :', props.item);
 	// }
 
+	const navigate = useNavigate();
+
 	const getYear = () => {
 		const releaseDate = isResult1(props.item) ? props.item.first_air_date : props.item.release_date;
 
@@ -41,6 +44,7 @@ const MovieItem: React.FC<MovieItemProp> = (props) => {
 
 	return (
 		<div
+			onClick={() => navigate(`movie-details/${props.item.id}`)}
 			className={`rounded-lg cursor-pointer ${styles.movieItem}`}
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
