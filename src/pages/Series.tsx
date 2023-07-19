@@ -56,7 +56,7 @@ const Series: React.FC<SeriesProps> = (props) => {
 				<div>Error: </div>
 			) : (
 				<div className='flex flex-wrap justify-center sm:justify-between items-center gap-8 '>
-					{(data?.results as Result[])?.map((project) => <MovieItem key={project.id} item={project} />)}
+					{(data?.results as Result[])?.map((project) => <MovieItem key={project.id} serie item={project} />)}
 				</div>
 			)}
 			<div className='flex justify-center mt-10 gap-10'>

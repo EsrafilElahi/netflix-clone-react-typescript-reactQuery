@@ -65,7 +65,7 @@ const MoviesDetails: React.FC<MovieDetailsProps> = (props) => {
 							className='w-full h-full rounded-lg'
 						/>
 					</div>
-					<div className='flex flex-col justify-center items-center'>
+					<div className='flex flex-1 flex-col justify-center items-center'>
 						<span>name : {isResult1(data) ? data?.original_name : data?.original_title}</span>
 						<span>year : {isResult1(data) ? data?.first_air_date : data?.release_date}</span>
 						<span>budget : {data?.budget}</span>

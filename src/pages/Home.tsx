@@ -68,7 +68,7 @@ const Home: React.FC<HomeProps> = (props) => {
 				<section className={styles.scrollSection}>
 					<Suspense fallback={<span>loading...</span>}>
 						{Array.isArray(series?.results) &&
-							series?.results?.map((item) => <MovieItem key={item.id as number} item={item} />)}
+							series?.results?.map((item) => <MovieItem key={item.id as number} serie item={item} />)}
 					</Suspense>
 				</section>
 			</section>
