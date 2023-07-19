@@ -2,6 +2,7 @@
 import WithLayout from 'components/layout/WithLayout';
 import React from 'react';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
+import Genres from './pages/Genres';
 import Home from './pages/Home';
 import Movies from './pages/Movies';
 import Series from './pages/Series';
@@ -9,6 +10,7 @@ import Series from './pages/Series';
 const HomeLayout = WithLayout(Home);
 const MoviesLayout = WithLayout(Movies);
 const SeriesLayout = WithLayout(Series);
+const GenresLayout = WithLayout(Genres);
 
 
 const router = createBrowserRouter([
@@ -23,6 +25,10 @@ const router = createBrowserRouter([
 	{
 		path: '/series',
 		element: <SeriesLayout title='Series' />,
+	},
+	{
+		path: '/genres',
+		element: <GenresLayout title='genres' />,
 	},
 ]);
 

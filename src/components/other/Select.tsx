@@ -28,14 +28,17 @@ function Select(props: SelectProps) {
 
 	const fetchGenre = async (genreID: number) => {
 		const res = await fetchData(
-			`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&with_genres=${genreID}`
+			`https://api.themoviedb.org/3/discover/movie?api_key=24a3eff201498db2ff80c33edb2337ca&with_genres=${genreID}`
 		);
 		return res;
 	};
 
-		const { isLoading, isError, error, data, isFetching } = useQuery<any>(['genre', (selectedOption as Genre)?.id]);
+		useQuery<any>(
+		['genre', (selectedOption as any)?.id],
+		() => fetchGenre((selectedOption as any)?.id)
+	);
 
-		console.log('data genre :', data);
+		// console.log('data genre select :', data);
 
 	useEffect(() => {
 		fetchGenre((selectedOption as Genre)?.id);
