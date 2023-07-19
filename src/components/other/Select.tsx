@@ -33,9 +33,9 @@ function Select(props: SelectProps) {
 		return res;
 	};
 
-		const { isLoading, isError, error, data, isFetching } = useQuery<any>(['genre', '123'], () => fetchGenre(123));
+		const { isLoading, isError, error, data, isFetching } = useQuery<any>(['genre', (selectedOption as Genre)?.id]);
 
-		console.log('dataaaaaaaa genre :', data);
+		console.log('data genre :', data);
 
 	useEffect(() => {
 		fetchGenre((selectedOption as Genre)?.id);
@@ -45,9 +45,8 @@ function Select(props: SelectProps) {
 		<select
 			value={selectedOption?.id || ''}
 			onChange={handleSelectChange}
-			className='appearance-none cursor-pointer text-xl bg-transparent text-white border border-gray-300 px-4 py-2 rounded-md shadow-sm leading-tight focus:outline-none'
+			className='appearance-none cursor-pointer text-xl bg-transparent text-black border border-gray-300 px-4 py-2 rounded-md shadow-sm leading-tight focus:outline-none'
 		>
-
 			{options.map((option) => (
 				<option key={option.id} value={option.id} className='bg-transparent text-gray-600 cursor-pointer'>
 					{option.name}
