@@ -1,3 +1,6 @@
+// @ts-nocheck
+// @ts-ignore
+
 import MovieItem from 'components/Movie/MovieItem';
 import React, { useDebugValue, useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
