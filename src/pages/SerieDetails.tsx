@@ -2,23 +2,25 @@ import MovieItem from 'components/Movie/MovieItem';
 import React,{ useEffect,useRef,useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useQuery } from 'react-query';
+import { useParams } from 'react-router-dom';
 import { Result,Value } from 'types/HomePageTypes';
 import { fetchData } from '../api gateway/HomePage';
 
 interface MovieDetailsProps {
 	title: string;
-	id: number;
 }
 
 const SeriesDetails: React.FC<MovieDetailsProps> = (props) => {
-	const { title, id } = props;
+	const { title } = props;
 
-	const fetchSerieDetails = async (id: number) => {
-		const res = await fetchData(`https://api.themoviedb.org/3/tv/id?language=en-US`);
+	const { id } = useParams();
+
+	const fetchSerieDetails = async () => {
+		const res = await fetchData(`https://api.themoviedb.org/3/tv/${id}?language=en-US`);
 		return res;
 	};
 
-	const { isLoading, isError, error, data, isFetching } = useQuery<Value>(['movies', id], () => fetchSerieDetails(id), {
+	const { isLoading, isError, error, data, isFetching } = useQuery<Value>(['movies', id], () => fetchSerieDetails(), {
 		enabled: !!id,
 	});
 
