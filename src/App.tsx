@@ -43,6 +43,14 @@ const router = createBrowserRouter([
 		path: '/serie-details/:id',
 		element: <SerieDetailsLayout title='serie details' />,
 	},
+	{
+		path: 'movies/movie-details/:id',
+		element: <MovieDetailsLayout title='movie details' />,
+	},
+	{
+		path: 'series/serie-details/:id',
+		element: <SerieDetailsLayout title='serie details' />,
+	},
 ]);
 // https://api.themoviedb.org/3/movie/{movie_id}?language=en-US
 

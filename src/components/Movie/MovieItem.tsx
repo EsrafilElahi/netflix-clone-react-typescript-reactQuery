@@ -8,7 +8,9 @@ import { Result1,Result2 } from 'types/HomePageTypes';
 
 type MovieItemProp = {
 	item: Partial<Result1> | Partial<Result2>;
-	serie?: boolean
+	serie?: boolean;
+	series?: boolean
+	movies?: boolean
 };
 
 export const isResult1 = (value: Partial<Result1> | Partial<Result2>): value is Partial<Result1> => {
@@ -44,10 +46,12 @@ const MovieItem: React.FC<MovieItemProp> = (props) => {
 	};
 
 	const handleRoute = () => {
-		if(props.serie) {
-			navigate(`serie-details/${props.item.id}`)
+		if (props.serie) {
+			navigate(`serie-details/${props.item.id}`);
+		} else if (props.series) {
+			navigate(`serie-details/${props.item.id}`);
 		} else {
-			navigate(`movie-details/${props.item.id}`)
+			navigate(`movie-details/${props.item.id}`);
 		}
 	}
 
