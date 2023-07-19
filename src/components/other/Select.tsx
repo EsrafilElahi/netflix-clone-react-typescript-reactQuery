@@ -3,18 +3,18 @@ import { useQuery } from 'react-query';
 import { fetchData } from '../../api gateway/HomePage';
 
 
-interface SelectOption {
+interface Genre {
 	id: number;
 	name: string;
 }
 interface SelectProps {
-	options: SelectOption[];
-	onChange: (selectedOption: SelectOption) => void;
+	options: Genre[];
+	onChange: (selectedOption: Genre) => void;
 }
 
 function Select(props: SelectProps) {
 	const { options, onChange } = props;
-	const [selectedOption, setSelectedOption] = useState<SelectOption | null>(null);
+	const [selectedOption, setSelectedOption] = useState<Genre | null>(null);
 
 	const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
 		const selectedValue = parseInt(event.target.value);
@@ -36,7 +36,7 @@ function Select(props: SelectProps) {
 		console.log('dataaaaaaaa genre :', data);
 
 	useEffect(() => {
-		fetchGenre(123);
+		fetchGenre((selectedOption as Genre)?.id);
 	}, [selectedOption]);
 
 	return (
