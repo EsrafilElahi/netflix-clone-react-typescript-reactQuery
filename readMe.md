@@ -5,7 +5,6 @@ This is a Netflix clone built using Vite, TypeScript, Yarn, Tailwind CSS, React 
 ## Features
 
 - Display a list of movies and TV shows
-- Search for movies and TV shows
 - View movie and TV show details
 - Responsive design for different screen sizes
 
