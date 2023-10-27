@@ -13,7 +13,7 @@ const HomeLayout = WithLayout(Home);
 const MoviesLayout = WithLayout(Movies);
 const SeriesLayout = WithLayout(Series);
 const GenresLayout = WithLayout(Genres);
-const MovieDetailsLayout = WithLayout(MovieDetails);
+const MovieDetailsLayout = WithLayout(MovieDetails); 
 const SerieDetailsLayout = WithLayout(SeriesDetails);
 
 const router = createBrowserRouter([
