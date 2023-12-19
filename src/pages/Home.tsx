@@ -54,7 +54,7 @@ const Home: React.FC<HomeProps> = (props) => {
 			<section className='flex flex-col p-4 gap-4'>
 				<h2 className='font-barlowBold text-3xl drop-shadow-lg tracking-[.3rem]'>Favorites</h2>
 				<section className={styles.scrollSection}>
-					<Suspense fallback={<span>loading...</span>}>
+					<Suspense fallback={<span>Loading...</span>}>
 						{Array.isArray(favorites?.results) &&
 							favorites?.results?.map((item) => <MovieItem key={item.id as number} item={item} />)}
 					</Suspense>
